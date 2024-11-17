@@ -6,7 +6,7 @@ from bot_logic import gen_pass
 bot = telebot.TeleBot(TOKEN_bot)
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
-    bot.reply_to(message, "Привет! Я твой Telegram бот. Напиши что-нибудь!")
+    bot.reply_to(message, "Привет! Я твой Telegram бот. Напиши что-нибудь! Команды: /start /hello /gen_pass /bye")
 @bot.message_handler(commands=['hello'])
 def send_hello(message):
     bot.reply_to(message, "Привет! Как дела?")
