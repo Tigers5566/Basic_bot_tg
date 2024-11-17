@@ -1,4 +1,5 @@
 import telebot
+import random
 from config_bot import TOKEN_bot
 from bot_logic import gen_pass
 # Замени 'TOKEN' на токен твоего бота
@@ -6,10 +7,14 @@ from bot_logic import gen_pass
 bot = telebot.TeleBot(TOKEN_bot)
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
-    bot.reply_to(message, "Привет! Я твой Telegram бот. Напиши что-нибудь! Команды: /start /hello /gen_pass /bye")
+    bot.reply_to(message, "Привет! Я твой Telegram бот. Напиши что-нибудь! Команды: /start /hello /gen_pass /bye /random_number")
 @bot.message_handler(commands=['hello'])
 def send_hello(message):
     bot.reply_to(message, "Привет! Как дела?")
+@bot.message_handler(commands=['random_number'])
+def send_random(message):
+    number = random.randrange(1, 10)
+    bot.reply_to(message, number)
 
 @bot.message_handler(commands=['bye'])
 def send_bye(message):
